@@ -11,9 +11,9 @@ csv_files = [
     '..\\DataFiles\\output_part_10.csv', '..\\DataFiles\\output_part_11.csv', '..\\DataFiles\\output_part_12.csv'
 ]
 
-for csv in csv_files:
+for csv_file in csv_files:
     with open(csv_file, 'r', encoding='utf-8') as f:
-        data = csv.reader(f)
+        reader = csv.reader(f)
 
     for row in reader:
         track_uri = row[0]
