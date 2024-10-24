@@ -15,12 +15,12 @@ for csv_file in csv_files:
     with open(csv_file, 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
 
-    for row in reader:
-        track_uri = row[0]
-        url = "https://open.spotify.com/track/" + track_uri
-        command = ['spotdl', url, '--web-use-output-dir', '--output', output_folder]
-        try:
-            subprocess.run(command, check=True)
-            print(f'Processing: {url}')
-        except subprocess.CalledProcessError as e:
-            print(f'Failed to process {url}: {e}')
+        for row in reader:
+            track_uri = row[0]
+            url = "https://open.spotify.com/track/" + track_uri
+            command = ['spotdl', url, '--web-use-output-dir', '--output', output_folder]
+            try:
+                subprocess.run(command, check=True)
+                print(f'Processing: {url}')
+            except subprocess.CalledProcessError as e:
+                print(f'Failed to process {url}: {e}')
